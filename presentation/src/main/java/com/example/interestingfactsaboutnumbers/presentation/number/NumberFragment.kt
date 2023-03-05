@@ -1,5 +1,6 @@
 package com.example.interestingfactsaboutnumbers.presentation.number
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -9,6 +10,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.example.interestingfactsaboutnumbers.R
 import com.example.interestingfactsaboutnumbers.databinding.FragmentNumberBinding
+import com.example.interestingfactsaboutnumbers.presentation.fact.FactActivity
+import com.example.interestingfactsaboutnumbers.presentation.main.MainActivity
 import com.google.android.material.snackbar.Snackbar
 
 class NumberFragment : Fragment() {
@@ -28,6 +31,15 @@ class NumberFragment : Fragment() {
         setButtonGetFactHandler()
         setButtonGetRandomFactHandler()
 
+        viewModel.factAboutNumber.value = null
+
+        viewModel.factAboutNumber.observe(viewLifecycleOwner) {
+            if(viewModel.factAboutNumber.value == null) return@observe
+            val intent = Intent(requireContext(), FactActivity::class.java)
+            intent.putExtra(MainActivity.INTENT_FACT_ACTIVITY_KEY, viewModel.factAboutNumber.value)
+            startActivity(intent)
+        }
+
         return binding.root
     }
 
@@ -44,12 +56,16 @@ class NumberFragment : Fragment() {
                     .show()
                 Log.e("NumberFormatException", e.message.toString())
             }
+            finally {
+                it.clearFocus()
+            }
         }
     }
 
     private fun setButtonGetRandomFactHandler() {
         binding.btnGetRandomFact.setOnClickListener {
             viewModel.getRandomFact()
+            it.clearFocus()
         }
     }
 

@@ -1,12 +1,10 @@
 package com.example.interestingfactsaboutnumbers.presentation.main
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.example.interestingfactsaboutnumbers.app.App
 import com.example.interestingfactsaboutnumbers.databinding.ActivityMainBinding
-import com.example.interestingfactsaboutnumbers.presentation.fact.FactActivity
 import com.example.interestingfactsaboutnumbers.presentation.number.NumberViewModel
 import com.example.interestingfactsaboutnumbers.presentation.number.NumberViewModelFactory
 import javax.inject.Inject
@@ -28,11 +26,14 @@ class MainActivity : AppCompatActivity() {
         (applicationContext as App).appComponent.inject(this)
         viewModel = ViewModelProvider(this, numberViewModelFactory)[NumberViewModel::class.java]
 
-        viewModel.factAboutNumber.observe(this) {
+        viewModel.factAboutNumber.value = null
+
+        /*viewModel.factAboutNumber.observe(this) {
+            if(viewModel.factAboutNumber.value == null) return@observe
             val intent = Intent(applicationContext, FactActivity::class.java)
             intent.putExtra(INTENT_FACT_ACTIVITY_KEY, viewModel.factAboutNumber.value)
             startActivity(intent)
-        }
+        }*/
 
         setContentView(binding.root)
     }

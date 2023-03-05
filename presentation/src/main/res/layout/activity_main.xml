@@ -7,12 +7,24 @@
     tools:context=".presentation.main.MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragment_container_view"
+        android:id="@+id/fcv_number_fragment"
         android:name="com.example.interestingfactsaboutnumbers.presentation.number.NumberFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:layout="@layout/fragment_number" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fcv_facts"
+        android:name="com.example.interestingfactsaboutnumbers.presentation.facts.FactsFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fcv_number_fragment"
+        tools:layout="@layout/fragment_facts" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

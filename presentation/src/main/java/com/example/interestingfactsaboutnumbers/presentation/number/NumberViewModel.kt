@@ -17,7 +17,7 @@ class NumberViewModel(
 
     fun getFact(number: Int) {
         viewModelScope.launch {
-            factAboutNumber.value = FactAboutNumber(0, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis semper purus sed libero iaculis ultrices. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a eros sapien. Pellentesque non convallis odio, id luctus odio. Proin rutrum ultricies arcu sollicitudin lobortis. Sed pharetra erat mi, ut faucibus nisl bibendum id. Integer tristique diam sed enim congue, in sodales libero malesuada. Donec tincidunt volutpat tellus vel porttitor.")
+            factAboutNumber.value = FactAboutNumber(number, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis semper purus sed libero iaculis ultrices. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a eros sapien. Pellentesque non convallis odio, id luctus odio. Proin rutrum ultricies arcu sollicitudin lobortis. Sed pharetra erat mi, ut faucibus nisl bibendum id. Integer tristique diam sed enim congue, in sodales libero malesuada. Donec tincidunt volutpat tellus vel porttitor.")
             // factAboutNumber.value = getFactByNumberUseCase.execute(number)
         }
     }
