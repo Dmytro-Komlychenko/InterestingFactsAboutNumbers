@@ -1,4 +1,4 @@
-package com.example.interestingfactsaboutnumbers.presentation.getnumber
+package com.example.interestingfactsaboutnumbers.presentation.number
 
 import android.os.Bundle
 import android.util.Log

@@ -1,12 +1,14 @@
 package com.example.interestingfactsaboutnumbers.presentation.main
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.example.interestingfactsaboutnumbers.app.App
 import com.example.interestingfactsaboutnumbers.databinding.ActivityMainBinding
-import com.example.interestingfactsaboutnumbers.presentation.getnumber.NumberViewModel
-import com.example.interestingfactsaboutnumbers.presentation.getnumber.NumberViewModelFactory
+import com.example.interestingfactsaboutnumbers.presentation.fact.FactActivity
+import com.example.interestingfactsaboutnumbers.presentation.number.NumberViewModel
+import com.example.interestingfactsaboutnumbers.presentation.number.NumberViewModelFactory
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
@@ -27,7 +29,9 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this, numberViewModelFactory)[NumberViewModel::class.java]
 
         viewModel.factAboutNumber.observe(this) {
-            //TODO: start fact activity
+            val intent = Intent(applicationContext, FactActivity::class.java)
+            intent.putExtra(INTENT_FACT_ACTIVITY_KEY, viewModel.factAboutNumber.value)
+            startActivity(intent)
         }
 
         setContentView(binding.root)
@@ -36,5 +40,9 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+    companion object {
+        const val INTENT_FACT_ACTIVITY_KEY = "INTENT_FACT_ACTIVITY_KEY"
     }
 }

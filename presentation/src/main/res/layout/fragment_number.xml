@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    tools:context=".presentation.getnumber.NumberFragment">
+    tools:context=".presentation.number.NumberFragment">
 
     <EditText
         android:id="@+id/et_number"

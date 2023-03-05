@@ -1,4 +1,4 @@
-package com.example.interestingfactsaboutnumbers.presentation.getnumber
+package com.example.interestingfactsaboutnumbers.presentation.number
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
