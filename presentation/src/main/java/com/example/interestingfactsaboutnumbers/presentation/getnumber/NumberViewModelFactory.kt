@@ -12,8 +12,8 @@ class NumberViewModelFactory(
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return NumberViewModel(
-            //getFactByNumberUseCase = getFactByNumberUseCase,
-            //getRandomFactUseCase = getRandomFactUseCase,
+            getFactByNumberUseCase = getFactByNumberUseCase,
+            getRandomFactUseCase = getRandomFactUseCase,
         ) as T
     }
 

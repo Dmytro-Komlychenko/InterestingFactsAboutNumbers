@@ -9,8 +9,8 @@ import com.example.interestingfactsaboutnumbers.model.FactAboutNumber
 import kotlinx.coroutines.launch
 
 class NumberViewModel(
-    //private val getFactByNumberUseCase: GetFactByNumberUseCase,
-    //private val getRandomFactUseCase: GetRandomFactUseCase
+    private val getFactByNumberUseCase: GetFactByNumberUseCase,
+    private val getRandomFactUseCase: GetRandomFactUseCase
 ) : ViewModel() {
 
     val factAboutNumber: MutableLiveData<FactAboutNumber> = MutableLiveData()

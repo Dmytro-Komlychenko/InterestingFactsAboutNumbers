@@ -1,6 +1,6 @@
 package com.example.domain.usecase
 
-class GetFactByNumberUseCase {
+class GetFactByNumberUseCase() {
     fun execute(number: Int) {
 
     }
